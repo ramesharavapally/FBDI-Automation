@@ -1,0 +1,6 @@
+venv
+fbdi.zip
+fbdi/**/__pycache__/
+test.ipynb
+encoder.py
+logs
