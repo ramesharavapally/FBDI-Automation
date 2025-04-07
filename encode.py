@@ -12,7 +12,8 @@ def convert_py_files(root_dir='.', output_dir='txt_files', extension='.py.txt'):
     """
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
-    # Resre
+    # Resreve the original directory structure in the output directory
+    os.makedirs(output_dir, exist_ok=True)
     
     # Find all .py files recursively
     for root, _, files in os.walk(root_dir):
