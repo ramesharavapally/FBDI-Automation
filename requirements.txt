@@ -1,0 +1,17 @@
+pandas
+requests
+openpyxl
+ipykernel
+fastapi
+uvicorn
+pydantic
+anyio
+python-jose
+aiofiles
+pydantic-settings
+asgi-correlation-id
+python-multipart
+python-dotenv
+aiohttp
+watchtower
+oracledb

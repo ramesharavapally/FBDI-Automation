@@ -1,0 +1,7 @@
+Module	- Finance
+Sub Module	- Payables
+Object	- AP Invoice
+	User will upload source file in the attachment section		
+	Display list of  Columns based on the object submodule , Module
+	Transofmr data
+
