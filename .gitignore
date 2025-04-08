@@ -5,3 +5,4 @@ test.ipynb
 encoder.py
 logs
 __pycache__
+.env
