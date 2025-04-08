@@ -222,6 +222,7 @@ async def execute_sql_query(query: str) -> pd.DataFrame:
 
     Returns:
         pd.DataFrame: A DataFrame representing the query results.
+        
     """
     
     conn = await __getConnection()
