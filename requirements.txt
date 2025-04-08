@@ -14,5 +14,9 @@ python-multipart
 python-dotenv
 aiohttp
 watchtower
+<<<<<<< HEAD
 oracledb
 boto3
+=======
+oracledb
+>>>>>>> 10119d03bb4c74ec80f1aac0d08579e93c9cbebd
