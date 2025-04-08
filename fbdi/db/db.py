@@ -7,10 +7,7 @@ import asyncio
 import oracledb
 from fbdi.utils.config import config , get_db_confg
 import json
-<<<<<<< HEAD
 import pandas as pd
-=======
->>>>>>> 10119d03bb4c74ec80f1aac0d08579e93c9cbebd
 logger = logging.getLogger(__name__)
 
 
