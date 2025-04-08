@@ -16,51 +16,69 @@ router = APIRouter()
 @router.post("/transform/")
 async def transform_data_with_mapping(
     source_file: UploadFile = File(...),
-    mapping_file: UploadFile = File(...),
+    mapping_json: str = Form(...),
 ):
     """
-    Transform source data using a mapping file and return zipped CSV files
+    Transform source data using a mapping JSON string and return zipped CSV files
     
     - Upload a source data file (CSV or Excel)
-    - Upload a mapping file (Excel with mapping sheets)
-    - Process each mapping sheet to generate CSV files
+    - Provide a mapping JSON string
+    - Process the mapping to generate CSV files
     - Return a zip file containing all generated CSVs
     
     Args:
         source_file: Source data file (CSV or Excel)
-        mapping_file: Mapping file (Excel with mapping sheets)
+        mapping_json: Mapping data as a JSON string
         
     Returns:
         Response: Zip file containing generated CSV files
+    
+    Example JSON mapping structure:
+    {
+      "Sheet1": [
+        {
+          "Source Column": "source1",
+          "Control Column": "target1",
+          "Default Value": {"type":"sql",
+                            "value":"select 1 from dual"}
+        },    
+        {
+          "Source Column": "source2",
+          "Control Column": "target2",
+          "Default Value": {"type":"sequence",
+                            "value":"YYYYMMDDHHMISS"}
+        },    
+        {
+          "Source Column": "source2",
+          "Control Column": "target2",
+          "Default Value": {"type":"constant",
+                            "value":"123"}
+        },    
+      ],
+      "Sheet2": [    
+         ...
+      ]
+    }
     """
     try:
-        # Check file types
-        if not mapping_file.filename.lower().endswith(('.xlsx', '.xls')):
-            raise HTTPException(
-                status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-                detail="Mapping file must be an Excel file (.xlsx or .xls)"
-            )
-        
         # Read file contents
         source_content = await source_file.read()
-        mapping_content = await mapping_file.read()
         
-        if not source_content or not mapping_content:
+        if not source_content or not mapping_json:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Empty file(s) uploaded"
+                detail="Empty source file or mapping JSON provided"
             )
         
         # Process files and generate zip
         zip_content = await process_mapping_and_generate_csvs(
             source_content,
-            mapping_content,
-            source_file.filename,
-            mapping_file.filename
+            mapping_json,
+            source_file.filename            
         )
         
         # Determine the output filename
-        output_filename = get_transformed_filename(source_file.filename)
+        output_filename = await get_transformed_filename(source_file.filename)
         
         # Return the zip file as a response
         return Response(

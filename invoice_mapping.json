@@ -1,0 +1,381 @@
+{
+    "ApInvoicesInterface":
+    [
+        {
+            "Control Column": "INVOICE_ID",
+            "Source Column": "ID",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "OPERATING_UNIT",
+            "Source Column": "Employee Org Unit 2",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "SOURCE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "INVOICE_NUM",
+            "Source Column": "Report ID",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "INVOICE_AMOUNT",
+            "Source Column": "",
+            "Default Value": {"type":"sql",
+            "value":"SELECT name FROM FBDI_OBJECT"}
+        },
+        {
+            "Control Column": "INVOICE_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "VENDOR_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "VENDOR_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "VENDOR_SITE_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "INVOICE_CURRENCY_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PAYMENT_CURRENCY_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "DESCRIPTION",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "GROUP_ID",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "INVOICE_TYPE_LOOKUP_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "LEGAL_ENTITY_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "CUST_REGISTRATION_NUMBER",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "CUST_REGISTRATION_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "FIRST_PARTY_REGISTRATION_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "THIRD_PARTY_REGISTRATION_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "TERMS_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "TERMS_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "GOODS_RECEIVED_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "INVOICE_RECEIVED_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "GL_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PAYMENT_METHOD_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PAY_GROUP_LOOKUP_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "EXCLUSIVE_PAYMENT_FLAG",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "AMOUNT_APPLICABLE_TO_DISCOUNT",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PREPAY_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PREPAY_LINE_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PREPAY_APPLY_AMOUNT",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PREPAY_GL_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "INVOICE_INCLUDES_PREPAY_FLAG",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "EXCHANGE_RATE_TYPE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "EXCHANGE_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "EXCHANGE_RATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "ACCTS_PAY_CODE_CONCATENATED",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "DOC_CATEGORY_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "VOUCHER_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REQUESTER_FIRST_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REQUESTER_LAST_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REQUESTER_EMPLOYEE_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "DELIVERY_CHANNEL_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "BANK_CHARGE_BEARER",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REMIT_TO_SUPPLIER_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REMIT_TO_SUPPLIER_NUM",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REMIT_TO_ADDRESS_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PAYMENT_PRIORITY",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "SETTLEMENT_PRIORITY",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "UNIQUE_REMITTANCE_IDENTIFIER",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "URI_CHECK_DIGIT",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PAYMENT_REASON_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PAYMENT_REASON_COMMENTS",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REMITTANCE_MESSAGE1",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REMITTANCE_MESSAGE2",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "REMITTANCE_MESSAGE3",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "AWT_GROUP_NAME",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "SHIP_TO_LOCATION",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "TAXATION_COUNTRY",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "DOCUMENT_SUB_TYPE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "TAX_INVOICE_INTERNAL_SEQ",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "SUPPLIER_TAX_INVOICE_NUMBER",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "TAX_INVOICE_RECORDING_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "SUPPLIER_TAX_INVOICE_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "SUPPLIER_TAX_EXCHANGE_RATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "PORT_OF_ENTRY_CODE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "CORRECTION_YEAR",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "CORRECTION_PERIOD",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "IMPORT_DOCUMENT_NUMBER",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "IMPORT_DOCUMENT_DATE",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "CONTROL_AMOUNT",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "CALC_TAX_DURING_IMPORT_FLAG",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "ADD_TAX_TO_INV_AMT_FLAG",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "ATTRIBUTE_CATEGORY",
+            "Source Column": "",
+            "Default Value": ""
+        },
+        {
+            "Control Column": "ATTRIBUTE1",
+            "Source Column": "",
+            "Default Value": ""
+        }
+    ]
+}

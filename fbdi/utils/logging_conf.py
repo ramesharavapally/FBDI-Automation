@@ -1,10 +1,21 @@
 import logging.config
-from fbdi.utils.config import config , DevConfig
+from fbdi.utils.config import config, DevConfig
 import os
 from watchtower import CloudWatchLogHandler
+from fbdi.utils.s3_logger import S3LoggerHandler  # Import the S3LoggerHandler
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 LOGS_DIR = 'logs'
-os.makedirs(LOGS_DIR , exist_ok=True)
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+# S3 Logger Configuration
+S3_BUCKET_NAME = "fbdi-logs"  
+S3_LOG_FILE_PREFIX = "fbdi_logs"
+AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_REGION_NAME = "us-east-1"
 
 LOGGING_CONFIG = {
     "version": 1,
@@ -41,18 +52,21 @@ LOGGING_CONFIG = {
             "backupCount": 5,
             "encoding": "utf8",
         },
-        # "cloudwatch": {  # Add CloudWatch handler
-        #     "class": "watchtower.CloudWatchLogHandler",
-        #     "formatter": "detailed",
-        #     "level": "INFO",
-        #     "log_group": "fbdi-logs",
-        # },
+        "s3": {  # Add S3 handler
+            "()": S3LoggerHandler,
+            "bucket_name": S3_BUCKET_NAME,
+            "log_file_prefix": S3_LOG_FILE_PREFIX,
+            "aws_access_key": AWS_ACCESS_KEY,
+            "aws_secret_key": AWS_SECRET_KEY,
+            "region_name": AWS_REGION_NAME,
+            "level": "DEBUG",
+            "formatter": "detailed",
+        },
     },
     "loggers": {
         "fbdi": {
             "level": "DEBUG",
-            # "handlers": ["console", "file", "cloudwatch"],  # Include CloudWatch handler
-            "handlers": ["console", "file"],  # Include CloudWatch handler
+            "handlers": ["console", "file", "s3"],  # Include S3 handler
             "propagate": False,
         },
     },

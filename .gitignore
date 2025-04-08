@@ -4,3 +4,4 @@ fbdi/**/__pycache__/
 test.ipynb
 encoder.py
 logs
+__pycache__

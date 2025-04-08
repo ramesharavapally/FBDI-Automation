@@ -7,6 +7,7 @@ import asyncio
 import oracledb
 from fbdi.utils.config import config , get_db_confg
 import json
+import pandas as pd
 logger = logging.getLogger(__name__)
 
 
@@ -211,14 +212,53 @@ async def get_fbdi_object_names() -> List[str]:
     finally:
         await conn.close()
 
+async def execute_sql_query(query: str) -> pd.DataFrame:
+    """
+    Run a SQL query and return the results as a pandas DataFrame.
+    If any column is of type CLOB, convert it to a string.
+
+    Args:
+        query (str): The SQL query to execute.
+
+    Returns:
+        pd.DataFrame: A DataFrame representing the query results.
+    """
+    
+    conn = await __getConnection()
+    try:
+        async with conn.cursor() as cursor:
+            await cursor.execute(query)
+            rows = await cursor.fetchall()
+            columns = [col[0] for col in cursor.description]
+            
+            # Convert CLOB columns to strings
+            processed_rows = []
+            for row in rows:
+                processed_row = []
+                for col in row:
+                    # Check if the column is a CLOB using hasattr or type comparison
+                    if hasattr(col, "read"):  # CLOBs typically have a `read` method
+                        processed_row.append(await col.read())
+                    else:
+                        processed_row.append(col)
+                processed_rows.append(processed_row)
+            
+            df = pd.DataFrame(processed_rows, columns=columns)
+            return df
+    except Exception as e:
+        logger.error(f"Error executing SQL query: {str(e)}")
+        return pd.DataFrame()  # Return an empty DataFrame in case of error
+    finally:
+        await conn.close()
+
 
 
 
 async def main():
     # urls = await get_control_file_urls_by_object_name('APInvoice')
     # print(urls)
-    data = await __get_fbdi_config()
+    data = await execute_sql_query(query="SELECT * FROM FBDI_OBJECT")
     print(data)
 
 if __name__ == "__main__":
-    asyncio.run(main())    
+    asyncio.run(main())
