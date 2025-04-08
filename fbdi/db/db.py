@@ -215,7 +215,6 @@ async def get_fbdi_object_names() -> List[str]:
     finally:
         await conn.close()
 
-<<<<<<< HEAD
 async def execute_sql_query(query: str) -> pd.DataFrame:
     """
     Run a SQL query and return the results as a pandas DataFrame.
@@ -256,24 +255,14 @@ async def execute_sql_query(query: str) -> pd.DataFrame:
     finally:
         await conn.close()
 
-=======
->>>>>>> 10119d03bb4c74ec80f1aac0d08579e93c9cbebd
 
 
 
 async def main():
     # urls = await get_control_file_urls_by_object_name('APInvoice')
     # print(urls)
-<<<<<<< HEAD
     data = await execute_sql_query(query="SELECT * FROM FBDI_OBJECT")
     print(data)
 
 if __name__ == "__main__":
     asyncio.run(main())
-=======
-    data = await __get_fbdi_config()
-    print(data)
-
-if __name__ == "__main__":
-    asyncio.run(main())    
->>>>>>> 10119d03bb4c74ec80f1aac0d08579e93c9cbebd
